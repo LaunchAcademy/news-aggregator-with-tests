@@ -1,7 +1,7 @@
 require "spec_helper"
 
-feature "user sees article list" do
-  scenario "user views all article list items" do
+feature "when navigating to index page" do
+  scenario "user sees all article items" do
     CSV.open("articles.csv", "a", headers: true) do |csv|
       title = "Unicorns: What You Should Know"
       description = "Everything!!!"
@@ -10,27 +10,15 @@ feature "user sees article list" do
     end
 
     visit "/articles"
-    expect(page).to have_content("tacos")
-  end
-
-  scenario "user sees all article items at root path due to a redirect" do
-    CSV.open("articles.csv", "a", headers: true) do |csv|
-      title = "Unicorns: What You Should Know"
-      description = "Everything!!!"
-      url = "http://www.unicornknowledge.com"
-
-      csv << [title, description, url]
-    end
-
-    visit "/"
     expect(page).to have_content("Unicorns: What You Should Know")
-    expect(current_path).to eq("/articles")
+    expect(page).to have_content("Everything!!!")
+    expect(page).to have_content("http://www.unicornknowledge.com")
   end
 end
 
-feature "user adds article" do
-  scenario "item added when filled form submitted" do
-    visit "/articles"
+feature "when adding a new article" do
+  scenario "user is redirected to index and sees article if successful" do
+    visit "/articles/new"
 
     fill_in "Title", with: "Mushrooms are from Space"
     fill_in "Description", with: "totes aliens yo"
@@ -41,7 +29,7 @@ feature "user adds article" do
     expect(page.current_path).to eq "/articles"
   end
 
-  scenario "empty li element is not added when form missing name is submitted" do
+  scenario "user remains on page if form submission is unsuccessful" do
     visit "/articles/new"
     click_on "Add Article"
 
