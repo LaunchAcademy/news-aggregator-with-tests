@@ -1,3 +1,8 @@
+This Just in: Chris is Still Dope, yup, dope as heck, heck.com
+
+
+
+
 
 ### Instructions
 

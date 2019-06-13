@@ -1,0 +1,11 @@
+Articles Index Page
+
+<ul>
+
+  <% @articles.each do |article| %>
+  <li>
+    <%= article["title"]  %> | <%= article["description"]  %> | <%= article["url"]  %>
+  </li>
+  <% end %>
+
+</ul>
