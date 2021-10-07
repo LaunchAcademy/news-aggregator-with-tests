@@ -16,6 +16,7 @@ feature "when navigating to index page" do
     end
 
     visit "/articles"
+    # save_and_open_page
     expect(page).to have_content("Unicorns: What You Should Know")
     expect(page).to have_content("Everything!!!")
     expect(page).to have_content("http://www.unicornknowledge.com")

@@ -17,6 +17,8 @@ feature "when adding a new article" do
     fill_in "URL", with: "http://www.mushroomsspace.com"
     click_on "Add Article"
 
+    # save_and_open_page
+    
     expect(page).to have_content("Mushrooms are from Space")
     expect(page.current_path).to eq "/articles"
   end
@@ -24,7 +26,9 @@ feature "when adding a new article" do
   scenario "user remains on page if form submission is unsuccessful" do
     visit "/articles/new"
     click_on "Add Article"
-
+    
+    # save_and_open_page
+    
     expect(page).to have_content("New Article Form")
   end
 end
