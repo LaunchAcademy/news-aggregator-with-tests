@@ -8,7 +8,7 @@ feature "when navigating to index page" do
   end
   
   scenario "user sees all article items" do
-    CSV.open("articles.csv", "a", headers: true) do |csv|
+    CSV.open("articles_test.csv", "a", headers: true) do |csv|
       title = "Unicorns: What You Should Know"
       description = "Everything!!!"
       url = "http://www.unicornknowledge.com"
