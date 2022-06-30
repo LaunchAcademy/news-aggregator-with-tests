@@ -3,9 +3,10 @@ require "spec_helper"
 feature "when adding a new article" do
   scenario "a user can navigate to the form page from the articles index page" do
     visit "/articles"
+    
+    # save_and_open_page
 
     click_link "Add a new article"
-
     expect(page).to have_content("New Article Form")
   end
 
