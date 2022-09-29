@@ -7,6 +7,7 @@ feature "when adding a new article" do
     click_link "Add a new article"
 
     expect(page).to have_content("New Article Form")
+    expect(page).to have_current_path("/articles/new")
   end
 
   scenario "user is redirected to index and sees article if successful" do

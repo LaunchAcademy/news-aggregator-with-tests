@@ -1,0 +1,10 @@
+<h1>hello from the index page</h1>
+
+<% @articles.each do |article_hash| %>
+    <li>
+        <%= article_hash["title"] %> | <%= article_hash["description"] %> 
+        | <a href=<%= article_hash["URL"] %> target="_blank"> <%= article_hash["URL"] %> </a> 
+    </li>
+<% end %>
+
+<a href="/articles/new"> Add a new article </a>
